@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Swiper</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1, maximum-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="swiper.min.css">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+  <script src="swiper.min.js"></script>
+  <style>
+    .nav-link:active {
+      border: 3px solid #587FCC;
+      padding: 5px;
+    }
+    #navbar {
+      color: white; 
+      font-size: 20px; 
+      font-weight: 400;
+    }
+    .container {
+      padding: 0px;
+    }
+    .swiper-container {
+      width: 100%;
+      height: 500px;
+    }
+    .swiper-slide {
+      text-align: center;
+      font-size: 18px;
+      color: black;
+      background: white;
+      transform: scale(0.8, 0.7);
+      opacity: 0.5;
+      transition: transform 0.5s, opacity 0.5s;
+
+      /* Center slide text vertically */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .swiper-slide:hover {
+      transform: scale(0.9, 0.8);
+      opacity: 0.9;
+      transition: transform 0.5s, opacity 0.5s;
+    }
+    .swiper-slide.swiper-slide-active {
+      transform: scale(1.2, 1.1);
+      opacity: 1;
+      transition: transform 0.5s, opacity 0.5s, box-shadow 0.5s;
+    }
+    .swiper-slide.swiper-slide-prev {
+      transform: scale(0.95, 0.85);
+      padding-right: 20px;
+      transition: transform 0.5s, opacity 0.5s;
+    }
+    .swiper-slide.swiper-slide-prev:hover {
+      transform: scale(1, 0.9);
+      opacity: 0.9;
+      transition: transform 0.5s, opacity 0.5s;
+    }
+    .swiper-slide.swiper-slide-next {
+      transform: scale(0.95, 0.85);
+      padding-left: 20px;
+      transition: transform 0.5s, opacity 0.5s;
+    }
+    .swiper-slide.swiper-slide-next:hover {
+      transform: scale(1, 0.9);
+      opacity: 0.9;
+      transition: transform 0.5s, opacity 0.5s;
+    }
+    .card {
+      width: 500px; 
+      height: 430px;
+      border: 1px solid rgba(0,0,0,.125);
+      border-radius: 0.75rem;
+      transition: transform 1.5s;
+      transform-style: preserve-3d; 
+      backface-visibility: hidden;
+    }
+    .swiper-slide.swiper-slide-active .card {
+      box-shadow: -4px 4px 10px rgba(0, 0, 0, 0.4);
+    }
+    .card-img-top {
+      padding: 8px; 
+      height: 200px;
+    }
+    .card.flipped {
+      transform: rotateY(360deg);
+    }
+    .swiper-button-next {
+      right: 350px;
+      top: 96%;
+    }
+    .swiper-button-prev {
+      left: 350px;
+      top: 96%;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation bar -->
+  <div class="container">
+    <nav class="navbar navbar-expand navbar-dark" style="background-color: #B6B6B5;">
+      <ul class="navbar-nav" style="width: 100%; justify-content: space-around;">
+        <li class="nav-item">
+          <a class="nav-link" id="navbar" onclick="jumpToSlide()" href="#slide2">Jump to 2</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="navbar" onclick="jumpToSlide()" href="#slide5">Jump to 5</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="navbar" onclick="jumpToSlide()" href="#slide8">Jump to 8</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Swiper -->
+  <div class="container">
+    <div class="swiper-container" style="height: 650px;">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide" id="slide1">
+          <div class="card">
+            <img class="card-img-top" src="nature.jpg">
+            <div class="card-body">
+              <h4 class="card-title">John Doe</h4>
+              <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+              <a href="#" class="btn btn-primary">See Profile</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide" data-hash="slide2" id="slide2">
+          <div class="card">
+            <img class="card-img-top" src="nature.jpg">
+            <div class="card-body">
+              <h4 class="card-title">John Doe</h4>
+              <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+              <a href="#" class="btn btn-primary">See Profile</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide" id="slide3">
+          <div class="card">
+            <img class="card-img-top" src="nature.jpg">
+            <div class="card-body">
+              <h4 class="card-title">John Doe</h4>
+              <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+              <a href="#" class="btn btn-primary">See Profile</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide" id="slide4">
+          <div class="card">
+            <img class="card-img-top" src="nature.jpg">
+            <div class="card-body">
+              <h4 class="card-title">John Doe</h4>
+              <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+              <a href="#" class="btn btn-primary">See Profile</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide" data-hash="slide5" id="slide5">
+          <div class="card">
+            <img class="card-img-top" src="nature.jpg">
+            <div class="card-body">
+              <h4 class="card-title">John Doe</h4>
+              <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+              <a href="#" class="btn btn-primary">See Profile</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide" id="slide6">
+          <div class="card">
+            <img class="card-img-top" src="nature.jpg">
+            <div class="card-body">
+              <h4 class="card-title">John Doe</h4>
+              <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+              <a href="#" class="btn btn-primary">See Profile</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide" id="slide7">
+          <div class="card">
+            <img class="card-img-top" src="nature.jpg">
+            <div class="card-body">
+              <h4 class="card-title">John Doe</h4>
+              <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+              <a href="#" class="btn btn-primary">See Profile</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide" data-hash="slide8" id="slide8">
+          <div class="card">
+            <img class="card-img-top" src="nature.jpg">
+            <div class="card-body">
+              <h4 class="card-title">John Doe</h4>
+              <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+              <a href="#" class="btn btn-primary">See Profile</a>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide" id="slide9">
+          <div class="card">
+            <img class="card-img-top" src="nature.jpg">
+            <div class="card-body">
+              <h4 class="card-title">John Doe</h4>
+              <p class="card-text">Some example text some example text. John Doe is an architect and engineer</p>
+              <a href="#" class="btn btn-primary">See Profile</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <!-- Arrows -->
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div>
+    </div>
+  </div> 
+
+  <script>
+    var swiper = new Swiper(".swiper-container", { 
+      slidesPerView: 4,
+      spaceBetween: 30,
+      centeredSlides: true,
+      hashNavigation: {
+        watchState: true,
+        replaceState: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+
+    function jumpToSlide() {
+      $("#slide1 .card").toggleClass("flipped");
+      $("#slide2 .card").toggleClass("flipped");
+      $("#slide3 .card").toggleClass("flipped");
+      $("#slide4 .card").toggleClass("flipped");
+      $("#slide5 .card").toggleClass("flipped");
+      $("#slide6 .card").toggleClass("flipped");
+      $("#slide7 .card").toggleClass("flipped");
+      $("#slide8 .card").toggleClass("flipped");
+      $("#slide9 .card").toggleClass("flipped");
+    }
+  </script>
+</body>
+</html>
